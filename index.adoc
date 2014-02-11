@@ -1,0 +1,96 @@
+= Neo4j Documentation Introduction =
+Anders Nawroth
+:backend: deckjs
+:deckjs_theme: web-2.0
+:deckjs_transition: horizontal-slide
+:navigation:
+
+== What We Had ==
+
+* A Wiki.
+* Maintenance nightmare.
+* Annoyed users.
+
+== What We Wanted ==
+
+* Plain text format in version control.
+* Real working code behind code snippets.
+* Even have _tests_ for that code!
+
+== Building Blocks ==
+
+* AsciiDoc format.
+* Static and generated content.
+* Different approaches to integrate with code/tests.
+
+== The Flow of Content ==
+
+* Content is currently per module (which might change).
+* Static in `src/docs/`, generated in `target/docs/`.
+* Ends up in `*-docs.jar` artifact.
+* Assembled to produce the manual.
+
+== Embedded ==
+
+* Working code.
+* With tests.
+* Code brought into the docs via snippet extension.
+
+== REST API ==
+
+* Based on functional testing.
+* Captures request and response.
+* Text can be in JavaDoc -- don't autoformat it though!
+
+== Cypher ==
+
+* Lives in a separate module.
+* The detail-level text lives inside the tests.
+* The body text lives in `*.asciidoc` files.
+
+== GraphGist ==
+
+* A _format_ -- extending AsciiDoc -- with two implementations.
+** The online tool at http://gist.neo4j.org/.
+** A Java implementation with simple assertions; used for the manual.
+* Focus on the Cypher language or on a domain.
+
+== Output Formats ==
+
+* HTML for web.
+* Increased focus on interactivity.
+** Live console for single queries.
+** GraphGist-like pages for tutorials/sections.
+* PDF still needed.
+
+== Workflow ==
+
+* Pair with documentation team (me!) to ensure a smooth process and high quality.
+* Keep implementation and documentation close in time.
+* Actually run the documentation toolchain and check the output.
+** `mvn install -DdocsBuild` gives a preview of the manual.
+** `mvn install -DdocsBuild -DfullManualBuild` produces the real manual, including performing some extra validation (for example referential integrity of cross-references).
+
+== Writing ==
+
+* Put one sentence per line.
+* Read up on the AsciiDoc format.
+* Docs for docs: http://docs.neo4j.org/chunked/snapshot/community-docs.html
+
+== Current Strengths And Weaknesses ==
+
+* Good detail-level documentation.
+* Cool generated graph visualizations and interactivity!
+* Test coverage -- I think we should aim for 100% here.
+  Bugs in examples are almost always related to insufficient testing.
+* Missing pieces when it comes to tie things together.
+* Lack in seeing how a change affects different areas, for example upgrades or things only mentioned in text, not in example code.
+* Native dependencies in the documentation toolchain.
+
+== Cypher Refcard ==
+
+* A separate project, see http://docs.neo4j.org/refcard/2.0/
+* Backed by tests in Scala.
+* Currently synced with Cypher per milestone release.
+
+

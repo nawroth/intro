@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta content="Asciidoctor 0.1.4" name="generator">
+<meta content="Anders Nawroth" name="author">
+<title>Neo4j Documentation Introduction</title>
+<link href="deck.js/core/deck.core.css" rel="stylesheet">
+<link href="deck.js/extensions/hash/deck.hash.css" media="screen" rel="stylesheet">
+<link href="deck.js/extensions/scale/deck.scale.css" media="screen" rel="stylesheet">
+<link href="deck.js/extensions/navigation/deck.navigation.css" media="screen" rel="stylesheet">
+<link href="deck.js/themes/style/web-2.0.css" media="screen" rel="stylesheet">
+<link href="deck.js/themes/transition/horizontal-slide.css" media="screen" rel="stylesheet">
+<link href="deck.js/core/print.css" media="print" rel="stylesheet">
+<script src="deck.js/modernizr.custom.js"></script>
+</head>
+<body class="deck-container article">
+<section class="slide" id="title-slide">
+<h1>Neo4j Documentation Introduction</h1>
+<span id="author">Anders Nawroth</span>
+<br>
+</section>
+<section class="slide" id="_what_we_had">
+<h2>What We Had</h2>
+<div class="ulist">
+<ul>
+<li>A Wiki.</li>
+<li>Maintenance nightmare.</li>
+<li>Annoyed users.</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_what_we_wanted">
+<h2>What We Wanted</h2>
+<div class="ulist">
+<ul>
+<li>Plain text format in version control.</li>
+<li>Real working code behind code snippets.</li>
+<li>Even have <em>tests</em> for that code!</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_building_blocks">
+<h2>Building Blocks</h2>
+<div class="ulist">
+<ul>
+<li>AsciiDoc format.</li>
+<li>Static and generated content.</li>
+<li>Different approaches to integrate with code/tests.</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_the_flow_of_content">
+<h2>The Flow of Content</h2>
+<div class="ulist">
+<ul>
+<li>Content is currently per module (which might change).</li>
+<li>Static in <code>src/docs/</code>, generated in <code>target/docs/</code>.</li>
+<li>Ends up in <code>*-docs.jar</code> artifact.</li>
+<li>Assembled to produce the manual.</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_embedded">
+<h2>Embedded</h2>
+<div class="ulist">
+<ul>
+<li>Working code.</li>
+<li>With tests.</li>
+<li>Code brought into the docs via snippet extension.</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_rest_api">
+<h2>REST API</h2>
+<div class="ulist">
+<ul>
+<li>Based on functional testing.</li>
+<li>Captures request and response.</li>
+<li>Text can be in JavaDoc&#8201;&#8212;&#8201;don&#8217;t autoformat it though!</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_cypher">
+<h2>Cypher</h2>
+<div class="ulist">
+<ul>
+<li>Lives in a separate module.</li>
+<li>The detail-level text lives inside the tests.</li>
+<li>The body text lives in <code>*.asciidoc</code> files.</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_graphgist">
+<h2>GraphGist</h2>
+<div class="ulist">
+<ul>
+<li><p>
+A <em>format</em>&#8201;&#8212;&#8201;extending AsciiDoc&#8201;&#8212;&#8201;with two implementations.<div class="ulist">
+<ul>
+<li>The online tool at <a href="http://gist.neo4j.org/">http://gist.neo4j.org/</a>.</li>
+<li>A Java implementation with simple assertions; used for the manual.</li>
+</ul>
+</div></p></li>
+<li>Focus on the Cypher language or on a domain.</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_output_formats">
+<h2>Output Formats</h2>
+<div class="ulist">
+<ul>
+<li>HTML for web.</li>
+<li><p>
+Increased focus on interactivity.<div class="ulist">
+<ul>
+<li>Live console for single queries.</li>
+<li>GraphGist-like pages for tutorials/sections.</li>
+</ul>
+</div></p></li>
+<li>PDF still needed.</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_workflow">
+<h2>Workflow</h2>
+<div class="ulist">
+<ul>
+<li>Pair with documentation team (me!) to ensure a smooth process and high quality.</li>
+<li>Keep implementation and documentation close in time.</li>
+<li><p>
+Actually run the documentation toolchain and check the output.<div class="ulist">
+<ul>
+<li><code>mvn install -DdocsBuild</code> gives a preview of the manual.</li>
+<li><code>mvn install -DdocsBuild -DfullManualBuild</code> produces the real manual, including performing some extra validation (for example referential integrity of cross-references).</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_writing">
+<h2>Writing</h2>
+<div class="ulist">
+<ul>
+<li>Put one sentence per line.</li>
+<li>Read up on the AsciiDoc format.</li>
+<li>Docs for docs: <a href="http://docs.neo4j.org/chunked/snapshot/community-docs.html">http://docs.neo4j.org/chunked/snapshot/community-docs.html</a></li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_current_strengths_and_weaknesses">
+<h2>Current Strengths And Weaknesses</h2>
+<div class="ulist">
+<ul>
+<li>Good detail-level documentation.</li>
+<li>Cool generated graph visualizations and interactivity!</li>
+<li>Test coverage&#8201;&#8212;&#8201;I think we should aim for 100% here.
+Bugs in examples are almost always related to insufficient testing.</li>
+<li>Missing pieces when it comes to tie things together.</li>
+<li>Lack in seeing how a change affects different areas, for example upgrades or things only mentioned in text, not in example code.</li>
+<li>Native dependencies in the documentation toolchain.</li>
+</ul>
+</div>
+</section>
+
+<section class="slide" id="_cypher_refcard">
+<h2>Cypher Refcard</h2>
+<div class="ulist">
+<ul>
+<li>A separate project, see <a href="http://docs.neo4j.org/refcard/2.0/">http://docs.neo4j.org/refcard/2.0/</a></li>
+<li>Backed by tests in Scala.</li>
+<li>Currently synced with Cypher per milestone release.</li>
+</ul>
+</div>
+</section>
+
+<a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
+<a class="deck-next-link" href="#" title="Next">&#8594;</a>
+<a class="deck-permalink" href="." title="Permalink to this slide">#</a>
+<script src="deck.js/jquery.min.js"></script>
+<script src="deck.js/core/deck.core.js"></script>
+<script src="deck.js/extensions/hash/deck.hash.js"></script>
+<script src="deck.js/extensions/scale/deck.scale.js"></script>
+<script src="deck.js/extensions/navigation/deck.navigation.js"></script>
+<script>
+  (function($, deck, undefined) {
+    $.deck.defaults.keys['previous'] = [8, 33, 37, 39];
+    $.deck.defaults.keys['next'] = [13, 32, 34, 39];
+  
+    $.extend(true, $[deck].defaults, {
+        countNested: false
+    });
+  
+    $.deck('.slide');
+  })(jQuery, 'deck');
+</script>
+<style>
+  .slide.canvas-image {
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-box;
+  display: box;
+  -moz-box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -moz-box-align: start;
+  -webkit-box-align: start;
+  -ms-box-align: start;
+  box-align: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -ms-box-pack: start;
+  box-pack: start;}
+  
+  .bottom-left {
+    left: 1%;
+    bottom: 20%; }
+  
+  .top-left {
+    left: 1%;
+    top: 20%; }
+  
+  .bottom-right {
+    right: 1%;
+    bottom: 20%; }
+  
+  .top-right {
+    right: 1%;
+    top: 20%; }
+  
+  .center-up {
+    right: 50%;
+    top: 1%;
+  }
+  
+  .center-down {
+    right: 50%;
+    bottom: 1%;
+  }
+  .canvas-image .canvas-caption p {
+    text-align: center;
+    padding-top: 0;
+    padding: 0;
+    -moz-transform: none;
+    -webkit-transform: none;
+    -o-transform: none;
+    -ms-transform: none;
+    transform: none;
+    display: inline;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    font-size: 58px;
+    -webkit-box-shadow: 2px 2px 2px #000;
+    -moz-box-shadow: 2px 2px 2px #000;
+    box-shadow: 2px 2px 2px #000;
+    padding: 1rem;
+    color: white; }
+  kbd.keyseq { color: #555555; }
+  kbd:not(.keyseq) {
+    display: inline-block;
+    color: #222222;
+    font-size: 0.7em;
+    line-height: 1.4;
+    background-color: #F7F7F7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px white inset;
+    margin: -0.15em 0.15em 0 0.15em;
+    padding: 0.2em 0.6em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  kbd kbd:first-child { margin-left: 0; }
+  kbd kbd:last-child { margin-right: 0; }
+</style>
+</body>
+</html>
