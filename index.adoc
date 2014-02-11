@@ -26,7 +26,7 @@ Anders Nawroth
 == The Flow of Content ==
 
 * Content is currently per module (which might change).
-* Static in `src/docs/`, generated in `target/docs/`.
+* Static content in `src/docs/`, generated in `target/docs/`.
 * Ends up in `*-docs.jar` artifact.
 * Assembled to produce the manual.
 
@@ -57,6 +57,7 @@ Anders Nawroth
 
 == Output Formats ==
 
+* SVG images rendered by Graphviz.
 * HTML for web.
 * Increased focus on interactivity.
 ** Live console for single queries.
@@ -70,12 +71,15 @@ Anders Nawroth
 * Actually run the documentation toolchain and check the output.
 ** `mvn install -DdocsBuild` gives a preview of the manual.
 ** `mvn install -DdocsBuild -DfullManualBuild` produces the real manual, including performing some extra validation (for example referential integrity of cross-references).
+* Make sure even minor documentation changes get reviewed.
 
 == Writing ==
 
 * Put one sentence per line.
+* Use American English.
 * Read up on the AsciiDoc format.
 * Docs for docs: http://docs.neo4j.org/chunked/snapshot/community-docs.html
+* Starting points for doc tests: http://docgist.nawroth.se/?8823235
 
 == Current Strengths And Weaknesses ==
 
@@ -83,8 +87,8 @@ Anders Nawroth
 * Cool generated graph visualizations and interactivity!
 * Test coverage -- I think we should aim for 100% here.
   Bugs in examples are almost always related to insufficient testing.
-* Missing pieces when it comes to tie things together.
-* Lack in seeing how a change affects different areas, for example upgrades or things only mentioned in text, not in example code.
+* There's missing pieces when it comes to tie things together.
+* Lack in seeing how a change affects different areas, for example upgrades or something only mentioned in text, but not in example code.
 * Native dependencies in the documentation toolchain.
 
 == Cypher Refcard ==

@@ -59,7 +59,7 @@
 <div class="ulist">
 <ul>
 <li>Content is currently per module (which might change).</li>
-<li>Static in <code>src/docs/</code>, generated in <code>target/docs/</code>.</li>
+<li>Static content in <code>src/docs/</code>, generated in <code>target/docs/</code>.</li>
 <li>Ends up in <code>*-docs.jar</code> artifact.</li>
 <li>Assembled to produce the manual.</li>
 </ul>
@@ -119,6 +119,7 @@ A <em>format</em>&#8201;&#8212;&#8201;extending AsciiDoc&#8201;&#8212;&#8201;wit
 <h2>Output Formats</h2>
 <div class="ulist">
 <ul>
+<li>SVG images rendered by Graphviz.</li>
 <li>HTML for web.</li>
 <li><p>
 Increased focus on interactivity.<div class="ulist">
@@ -145,6 +146,7 @@ Actually run the documentation toolchain and check the output.<div class="ulist"
 <li><code>mvn install -DdocsBuild -DfullManualBuild</code> produces the real manual, including performing some extra validation (for example referential integrity of cross-references).</li>
 </ul>
 </div></p></li>
+<li>Make sure even minor documentation changes get reviewed.</li>
 </ul>
 </div>
 </section>
@@ -154,8 +156,10 @@ Actually run the documentation toolchain and check the output.<div class="ulist"
 <div class="ulist">
 <ul>
 <li>Put one sentence per line.</li>
+<li>Use American English.</li>
 <li>Read up on the AsciiDoc format.</li>
 <li>Docs for docs: <a href="http://docs.neo4j.org/chunked/snapshot/community-docs.html">http://docs.neo4j.org/chunked/snapshot/community-docs.html</a></li>
+<li>Starting points for doc tests: <a href="http://docgist.nawroth.se/?8823235">http://docgist.nawroth.se/?8823235</a></li>
 </ul>
 </div>
 </section>
@@ -168,8 +172,8 @@ Actually run the documentation toolchain and check the output.<div class="ulist"
 <li>Cool generated graph visualizations and interactivity!</li>
 <li>Test coverage&#8201;&#8212;&#8201;I think we should aim for 100% here.
 Bugs in examples are almost always related to insufficient testing.</li>
-<li>Missing pieces when it comes to tie things together.</li>
-<li>Lack in seeing how a change affects different areas, for example upgrades or things only mentioned in text, not in example code.</li>
+<li>There&#8217;s missing pieces when it comes to tie things together.</li>
+<li>Lack in seeing how a change affects different areas, for example upgrades or something only mentioned in text, but not in example code.</li>
 <li>Native dependencies in the documentation toolchain.</li>
 </ul>
 </div>
