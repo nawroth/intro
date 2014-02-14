@@ -80,6 +80,7 @@ Anders Nawroth
 * Read up on the AsciiDoc format.
 * Docs for docs: http://docs.neo4j.org/chunked/snapshot/community-docs.html
 * Starting points for doc tests: http://docgist.nawroth.se/?8823235
+* Remember generated docs need to be included from somewhere.
 
 == Current Strengths And Weaknesses ==
 
